@@ -1,0 +1,40 @@
+
+//-
+//- Admin Home.
+//-
+//-	Author: hustcer
+//- Date: 2012-05-11 
+//-
+
+.content
+	h1= title
+	h2.step 1
+	.drop-box#drop-box
+		span.tips Drop Files Here To See Preview...
+
+	h2.step 2
+	.upload-wraper
+		form(method="post", enctype="multipart/form-data", name="uploadForm", id="uploadForm", action="/upload", target="hiddenFrame", accept="text/plain, image/jpeg, image/png")
+			div.file-chooser
+				div.file-wrapper
+					label.cabinet
+						input(type="file", name="upfile1", id="upfile1", required="true", class="file")
+					span.fileName#fileName1
+				div.file-wrapper
+					label.cabinet
+						input(type="file", name="upfile2", id="upfile2", required="true", class="file")
+					span.fileName#fileName2
+				iframe.fd-hide(name='hiddenFrame', id="hidden-frame")
+			div.upload-div
+				input(type="submit", value="Upload", class="upload-btn commbtn")
+				span.message 
+
+	h2.step.fademe.toggle 3
+	.download-wraper
+		a.commbtn.preview-btn.disable-btn(href="javascript:;", target="_self") View Output Html
+		input(type='hidden', name='dirName', id='dirName') 
+		a.commbtn.download-btn.disable-btn(href="javascript:;") DownLoad Zip Ball
+
+include includes/footer	
+script(src='/javascripts/user/psd2html-index-merge.js')
+
